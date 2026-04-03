@@ -1,0 +1,51 @@
+{
+    "name": "MusicLib",
+    "short_name": "MusicLib",
+    "description": "Lecteur de musique via CDN",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0D111E",
+    "theme_color": "#0D111E",
+    "orientation": "portrait",
+    "scope": "/",
+    "lang": "fr",
+    "icons": [
+        {
+            "src": "/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-192-maskable.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icons/icon-512-maskable.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/screenshots/home.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Écran principal du métronome"
+        }
+    ],
+    "categories": [
+        "music",
+        "utilities"
+    ]
+}

@@ -1,0 +1,11 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Redirection pour SPA (Single Page Application)
+# Toutes les routes renvoient vers index.html
+# Le hash routing (#/) gère ensuite la navigation côté client
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

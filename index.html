@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0D111E" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="MetronHome" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+
+  <link rel="icon" type="image/png" href="logo.png" />
+  <title>MusicLib</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#171b2e" />
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script>
+    window.musicLibrary = { artists: [] };
+
+    window.addArtist = function (artist) {
+      window.musicLibrary.artists.push(artist);
+    };
+  </script>
+
+  <script type="module" src="/src/main.tsx"></script>
+  <!-- React App (chargé après les artistes) -->
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
