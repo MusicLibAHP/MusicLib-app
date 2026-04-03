@@ -1,9 +1,12 @@
-# Template React + TypeScript + Vite + Tailwind + shadcnUI
+# MusicLib v1.0.0
+(Template React + TypeScript + Vite + Tailwind + shadcnUI + shadergradient)
+
+***
 
 ## Clone & Initialisation:
 
 ```
-git clone https://github.com/DjoAHP/vrt_template.git
+git clone https://github.com/DjoAHP/MusicLib-ahp.git
 npm install
 npm run dev
 ```
