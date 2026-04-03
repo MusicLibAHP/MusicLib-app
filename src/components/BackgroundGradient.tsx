@@ -5,33 +5,52 @@ const ShaderGradientAny = ShaderGradient as any;
 
 export default function GradientBackground() {
   return (
-    <div className="fixed inset-0 -z-10">
-      <ShaderGradientCanvas style={{ width: "100%", height: "100%" }}>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: -10,
+        pointerEvents: "none",
+      }}
+    >
+      <ShaderGradientCanvas
+        style={{
+          background: "#02090f",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+        }}
+      >
         <ShaderGradientAny
           animate="on"
           axesHelper="on"
           bgColor1="#000000"
           bgColor2="#000000"
-          brightness={1.2}
+          brightness={1.1}
           cAzimuthAngle={180}
-          cDistance={1.7}
-          cPolarAngle={95}
+          cDistance={3.9}
+          cPolarAngle={115}
           cameraZoom={1}
-          color1="#00003e"
-          color2="#0469c7"
-          color3="#0b7876"
+          color1="#02090f"
+          color2="#427351"
+          color3="#000000"
           destination="onCanvas"
           embedMode="off"
-          envPreset="city"
+          envPreset="dawn"
           format="gif"
           fov={45}
           frameRate={10}
           gizmoHelper="hide"
-          grain="on"
-          lightType="3d"
+          grain="off"
+          lightType="env"
           pixelDensity={1}
-          positionX={0}
-          positionY={-2.1}
+          positionX={-0.5}
+          positionY={0.1}
           positionZ={0}
           range="disabled"
           rangeEnd={40}
@@ -39,14 +58,14 @@ export default function GradientBackground() {
           reflection={0.1}
           rotationX={0}
           rotationY={0}
-          rotationZ={225}
+          rotationZ={235}
           shader="defaults"
           type="waterPlane"
           uAmplitude={0}
-          uDensity={1.8}
+          uDensity={1.1}
           uFrequency={5.5}
-          uSpeed={0.1}
-          uStrength={3}
+          uSpeed={0.03}
+          uStrength={2.4}
           uTime={0.2}
           wireframe={false}
         />

@@ -36,7 +36,7 @@ export function ArtistsPage({ navigateTo }: ArtistsPageProps) {
           className="vinyl-link-btn"
         >
           <span className="vinyl-icon" />
-          <span className="vinyl-label">Mes Vinyles</span>
+          {/* <span className="vinyl-label">Mes Vinyles</span> */}
         </a>
 
         <h1>MusicLib</h1>
