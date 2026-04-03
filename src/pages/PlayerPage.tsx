@@ -4,6 +4,7 @@
 import { useEffect, useRef, useCallback } from "react";
 import { getArtist, getAlbum } from "../data/musicLibrary";
 import { Album3D } from "../components/Album3D";
+import { BackButton } from "../components/BackButton";
 import type { Route } from "../hooks/useRouter";
 
 interface PlayerPageProps {
@@ -82,7 +83,7 @@ export function PlayerPage({ artistId, albumId, navigateTo }: PlayerPageProps) {
   // Restaurer la piste active si elle appartient à cet album
   useEffect(() => {
     if (!album) return;
-    const cached = _durationCacheInit(album.tracks.map((t) => t.url));
+    _durationCacheInit(album.tracks.map((t) => t.url));
 
     // Restaurer l'état
     try {
@@ -102,22 +103,16 @@ export function PlayerPage({ artistId, albumId, navigateTo }: PlayerPageProps) {
         }
       }
     } catch {}
-
-    return () => cached.cleanup();
   }, [album, play]);
 
   if (!artist || !album) return null;
 
   return (
     <>
-      <div className="player-header">
-        <button
-          className="back-button-player"
-          onClick={() => navigateTo({ view: "albums", artistId })}
-        >
-          ← Retour aux albums
-        </button>
-      </div>
+      <BackButton
+        navigateTo={navigateTo}
+        target={{ view: "albums", artistId }}
+      />
 
       <div className="page">
         {/* Section Album 3D */}
@@ -204,10 +199,6 @@ function TrackItem({ track, index, albumId, onPlay }: TrackItemProps) {
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
-function _durationCacheInit(urls: string[]) {
-  // just ensures the cache object exists
+function _durationCacheInit(_urls: string[]) {
   if (!window._durationCache) window._durationCache = {};
-  return {
-    cleanup: () => {},
-  };
 }

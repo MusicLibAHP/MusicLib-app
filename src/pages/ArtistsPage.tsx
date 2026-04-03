@@ -28,18 +28,28 @@ export function ArtistsPage({ navigateTo }: ArtistsPageProps) {
   return (
     <div className="library-container">
       <header className="library-header">
-        {/* Bouton Mes Vinyles */}
+
+        {/* Bouton Vinyles — icône seule, rond */}
         <a
           href="https://vinylstack-ahp.netlify.app/"
           target="_blank"
           rel="noopener"
           className="vinyl-link-btn"
+          aria-label="Mes Vinyles"
         >
           <span className="vinyl-icon" />
-          {/* <span className="vinyl-label">Mes Vinyles</span> */}
         </a>
 
-        <h1>MusicLib</h1>
+        {/* Titre avec logo */}
+        <div className="library-title-row">
+          <img
+            src="/logo.png"
+            alt="MusicLib logo"
+            className="library-logo"
+          />
+          <h1>MusicLib</h1>
+        </div>
+
         <p className="subtitle">ARTISTES</p>
 
         <div className="search-wrapper">
