@@ -1,4 +1,4 @@
-# MusicLib v1.0.1
+# MusicLib v1.0.2
 
 (Template React + TypeScript + Vite + Tailwind + shadcnUI + shadergradient)
 
@@ -11,8 +11,9 @@ git clone https://github.com/DjoAHP/MusicLib-ahp.git
 npm install
 npm run dev
 ```
-## Push depot:
+## Push depot / Apres modifs et ajout nouvel version:
 ```
+npm run build
 git add .
 git commit -m "✨ Nouvelle fonctionnalité"
 git push

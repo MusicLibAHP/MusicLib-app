@@ -16,7 +16,7 @@ export function BackButton({ navigateTo, target }: BackButtonProps) {
       onClick={() => navigateTo(target)}
       aria-label="Retour"
     >
-      <ChevronLeft size={20} />
+      <ChevronLeft size={30} />
     </button>
   );
 }

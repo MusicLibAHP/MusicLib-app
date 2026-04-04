@@ -18,7 +18,8 @@ export default function GradientBackground() {
     >
       <ShaderGradientCanvas
         style={{
-          background: "#02090f",
+          // SECONDAIRE COLOR BACKGROUND GRADIENT 
+          background: "#3E7B9E",
           position: "absolute",
           top: 0,
           left: 0,
