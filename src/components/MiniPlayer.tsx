@@ -157,19 +157,36 @@ export function MiniPlayer({ navigateTo }: MiniPlayerProps) {
         <div className="mini-player-cover-wrapper">
           {cover && <img id="mini-player-cover" src={cover} alt="Pochette" />}
         </div>
-
         {/* Infos */}
         <div className="mini-player-info">
-          <div id="mini-player-title">{title}</div>
+          <div
+            id="mini-player-title"
+            style={{
+              fontSize: "1rem",
+              fontWeight: "600",
+              color: "#ffffff", // Blanc pur pour contraste
+              letterSpacing: "-0.5px",
+              textShadow: "0 2px 4px rgba(0,0,0,0.3)", // Légère ombre texte
+            }}
+          >
+            {title}
+          </div>
+
           <div
             id="mini-player-artist"
             onClick={handleInfoClick}
-            style={{ cursor: artistIdRef.current ? "pointer" : "default" }}
+            style={{
+              fontSize: "0.8rem",
+              color: "#94a3b8", // Gris bleuté (Tailwind slate-400)
+              cursor: artistIdRef.current ? "pointer" : "default",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+            }}
           >
             {artistAlbum}
           </div>
         </div>
-
         {/* Contrôles */}
         <div className="mini-player-controls">
           <button
@@ -192,7 +209,6 @@ export function MiniPlayer({ navigateTo }: MiniPlayerProps) {
             ⏭
           </button>
         </div>
-
         {/* Barre de progression */}
         <div className="mini-player-progress">
           <span id="mini-current-time">{formatTime(currentTime)}</span>
@@ -204,7 +220,6 @@ export function MiniPlayer({ navigateTo }: MiniPlayerProps) {
           </div>
           <span id="mini-duration">{formatTime(duration)}</span>
         </div>
-
         {/* Volume */}
         <div className="mini-player-volume">
           <button id="mini-volume-icon" title="Volume" onClick={toggleMute}>

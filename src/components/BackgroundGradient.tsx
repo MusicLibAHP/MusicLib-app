@@ -18,7 +18,7 @@ export default function GradientBackground() {
     >
       <ShaderGradientCanvas
         style={{
-          // SECONDAIRE COLOR BACKGROUND GRADIENT 
+          // SECONDAIRE COLOR BACKGROUND GRADIENT
           background: "#3E7B9E",
           position: "absolute",
           top: 0,
@@ -29,20 +29,20 @@ export default function GradientBackground() {
       >
         <ShaderGradientAny
           animate="on"
-          axesHelper="on"
+          axesHelper="off"
           bgColor1="#000000"
           bgColor2="#000000"
-          brightness={1.1}
-          cAzimuthAngle={180}
-          cDistance={3.9}
-          cPolarAngle={115}
-          cameraZoom={1}
-          color1="#02090f"
-          color2="#427351"
-          color3="#000000"
+          brightness={0.8}
+          cAzimuthAngle={270}
+          cDistance={0.5}
+          cPolarAngle={180}
+          cameraZoom={16.6}
+          color1="#73bfc4"
+          color2="#a6fffc"
+          color3="#8da0ce"
           destination="onCanvas"
           embedMode="off"
-          envPreset="dawn"
+          envPreset="city"
           format="gif"
           fov={45}
           frameRate={10}
@@ -50,24 +50,24 @@ export default function GradientBackground() {
           grain="off"
           lightType="env"
           pixelDensity={1}
-          positionX={-0.5}
-          positionY={0.1}
+          positionX={-0.1}
+          positionY={0}
           positionZ={0}
           range="disabled"
           rangeEnd={40}
           rangeStart={0}
-          reflection={0.1}
+          reflection={0.4}
           rotationX={0}
-          rotationY={0}
-          rotationZ={235}
+          rotationY={130}
+          rotationZ={70}
           shader="defaults"
-          type="waterPlane"
-          uAmplitude={0}
-          uDensity={1.1}
+          type="sphere"
+          uAmplitude={3.2}
+          uDensity={0.8}
           uFrequency={5.5}
-          uSpeed={0.03}
-          uStrength={2.4}
-          uTime={0.2}
+          uSpeed={0.07}
+          uStrength={0.3}
+          uTime={0}
           wireframe={false}
         />
       </ShaderGradientCanvas>

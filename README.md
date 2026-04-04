@@ -1,4 +1,4 @@
-# MusicLib v1.0.2
+# MusicLib v1.0.3
 
 (Template React + TypeScript + Vite + Tailwind + shadcnUI + shadergradient)
 

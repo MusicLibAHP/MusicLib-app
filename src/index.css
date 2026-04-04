@@ -707,15 +707,36 @@ body.has-mini-player .page {
   left: 0;
   right: 0;
   height: var(--player-height);
-  background: rgba(23, 23, 23, 0.8);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border-top: 1px solid var(--border-color);
-  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+  /* Ex: 90px */
+  background: rgba(18, 18, 24, 0.75);
+  /* Fond plus sombre et transparent */
+  backdrop-filter: blur(25px) saturate(180%);
+  /* Flou + Saturated pour lisibilité */
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 -4px 30px rgba(0, 0, 0, 0.6),
+    /* Ombre portée douce */
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  /* Lueur interne subtile */
   z-index: 9999;
   display: flex;
-  padding: 0 30px;
+  padding: 0 2rem;
   box-sizing: border-box;
+  transition: height 0.3s ease;
+}
+
+/* Animation de l'album en arrière-plan (Optionnel : nécessite un element canvas ou vidéo) */
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .mini-player-main {
@@ -733,11 +754,30 @@ body.has-mini-player .page {
   flex-shrink: 0;
   width: 64px;
   height: 64px;
-  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  /* Ombre portée plus marquée */
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(80, 148, 92, 0.2);
   background: var(--surface-color);
+}
+
+/* --- AJOUT : ANIMATION DE "BREATHE" POUR LA POCHE (Respiration) --- */
+/* S'ajoute quand la musique joue */
+.mini-player-cover-wrapper.playing img {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  }
 }
 
 #mini-player-cover {
@@ -746,6 +786,24 @@ body.has-mini-player .page {
   object-fit: cover;
   display: block;
   transition: opacity 0.2s ease, transform 0.2s ease;
+
+}
+
+/* Animation au play */
+.mini-playing #mini-player-cover {
+  animation: floatAlbum 3s ease-in-out infinite;
+}
+
+@keyframes floatAlbum {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
 }
 
 .mini-player-info {
@@ -826,14 +884,16 @@ body.has-mini-player .page {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--accent-color);
+  /* SECONDAIRE COULEUR GRADIENT BOUTON PLAY  */
+  background: linear-gradient(135deg, #7f9fd3 0%, #2563eb 100%);
+  /* Gradient */
   border: none;
   color: var(--dark-bg);
   font-size: 1.4rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   /* SECONDAIRE COLOR OMBRE BOUTON PLAYER  */
-  box-shadow: 0 0 15px var(--mini-player-back-btn);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -859,9 +919,9 @@ body.has-mini-player .page {
 
 .mini-progress-bar {
   flex: 1;
-  height: 5px;
+  height: 4px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+  border-radius: 2px;
   overflow: hidden;
   cursor: pointer;
   transition: height 0.2s;
@@ -873,8 +933,11 @@ body.has-mini-player .page {
 
 .mini-progress-fill {
   height: 100%;
-  background: var(--accent-color);
-  box-shadow: 0 0 8px var(--accent-color);
+  background: #5688d9;
+  /* Bleu vibrant ou ta couleur accent */
+  box-shadow: 0 0 10px rgba(73, 124, 207, 0.5);
+  /* Glow bleu */
+  border-radius: 2px;
   transition: width 0.1s linear;
 }
 
@@ -906,7 +969,7 @@ body.has-mini-player .page {
   appearance: none;
   width: 80px;
   height: 4px;
-  border-radius: 3px;
+  border-radius: 2px;
   outline: none;
   cursor: pointer;
   background: linear-gradient(to right,
@@ -918,15 +981,20 @@ body.has-mini-player .page {
 
 #mini-volume-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: var(--accent-color);
+  background: #ffffff;
   cursor: pointer;
-  box-shadow: 0 0 6px rgba(80,
-      148,
-      92, 0.7);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  transition: transform 0.1s ease;
 }
+
+#mini-volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
+
+
 
 #mini-volume-slider::-moz-range-thumb {
   width: 14px;
@@ -1175,6 +1243,8 @@ body.has-mini-player {
     height: 100%;
   }
 
+
+
   .mini-player-cover-wrapper {
     order: 0;
     flex-shrink: 0;
@@ -1183,12 +1253,36 @@ body.has-mini-player {
     border-radius: 5px;
   }
 
+  #mini-player-cover {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Zoom léger au clic */
+  }
+
+  /* Animation au play */
+  .mini-playing #mini-player-cover {
+    animation: floatAlbum 3s ease-in-out infinite;
+  }
+
+  @keyframes floatAlbum {
+
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+
+    50% {
+      transform: translateY(-8px) scale(1.02);
+    }
+  }
+
   .mini-player-info {
     order: 1;
     flex: 1;
     min-width: 0;
     width: auto;
   }
+
+
 
   #mini-player-title {
     font-size: 0.85rem;
@@ -1232,6 +1326,7 @@ body.has-mini-player {
 
   .mini-player-volume {
     display: none;
+    -webkit-appearance:
   }
 }
 
